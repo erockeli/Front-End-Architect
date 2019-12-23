@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import { RecipeCard } from './RecipeCard';
-import { Header } from './Header';
+import Header from './Header';
+
 
 
 const UserDash = () => {
@@ -22,7 +23,9 @@ const UserDash = () => {
                     recipe_name={item.recipe_name}
                     user_id={item.user_id}
                     />
+         
            ))}
+             
 
         </div>
         )

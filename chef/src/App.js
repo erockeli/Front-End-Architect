@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import UserDash from './components/UserDash'
-import ChefDash from './components/ChefDash'
+
 import PrivateRoute from './utils/PrivateRoute'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import {Login} from './components/Login'
+
 import {Logout} from './components/Logout'
 
 
