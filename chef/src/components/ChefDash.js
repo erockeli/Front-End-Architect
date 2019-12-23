@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+// import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 
- const ChefDash = () => {
+//  const ChefDash = () => {
 //     const [posts, setPosts] = useState([])
 //     //get posts from api server using axioswithAuth
 //     useEffect(() => {
 //         axiosWithAuth()
-//         .get('/recipes')
+//         .get('/recipes/auth/user')
 //         .then(res => setPosts(res.data))
 //         .catch(err => console.log(err.res))
 
@@ -48,21 +48,21 @@ import {axiosWithAuth} from '../utils/axiosWithAuth'
 //             console.log(err)
 //         })
 //     }
-    return (
-        <div>
-            <h1>Recipes</h1>
-            {/* <AddRecipe addRecipe={addPost}/>
-        {recipes.map(post => (
-                <EditFriend
-                    key={post.id}
-                    friend={post}
-                    postEdit={postEdit}
-                    deletePost={deletePost}
-                    />                    
+//     return (
+//         <div>
+//             <h1>Recipes</h1>
+//             <AddRecipe addRecipe={addPost}/>
+//         {recipes.map(post => (
+//                 <EditRecipes
+//                     key={post.id}
+//                     recipes={recipes}
+//                     postEdit={postEdit}
+//                     deletePost={deletePost}
+//                     />                    
                     
-            ))} */}
+//             ))}
                 
-        </div>
-    )
-}
-export default ChefDash;
+//         </div>
+//     )
+// }
+// export default ChefDash;
