@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+import Logout from './Logout'
 
 
  const ChefDash = () => {
@@ -11,7 +12,7 @@ import {axiosWithAuth} from '../utils/axiosWithAuth'
         .then(res => setRecipes(res.data))
         .catch(err => console.log(err.res))
 
-    })
+    }, [])
 //put request for the edit passing post(body)
 //assigning variable that will be passed to editPost
     const recipeEdit = recipe => {
@@ -49,6 +50,7 @@ import {axiosWithAuth} from '../utils/axiosWithAuth'
     }
     return (
         <div>
+            
             {/* <h1>Recipes</h1>
             <AddRecipe addRecipe={addRecipe}/>
         {recipes.map(post => (

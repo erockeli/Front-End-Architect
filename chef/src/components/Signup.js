@@ -90,11 +90,18 @@ const SignUp = props => {
             type="text"
           />
           <input
-            name="zipCode"
+            name="zipcode"
             placeholder="Zip"
             onChange={handleChange}
             value={newUser.zipCode}
             type="text"
+          />
+          <input
+            name="phone"
+            placeholder="Phone"
+            onChange={handleChange}
+            value={newUser.phone}
+            type="phone"
           />
           <input
             name="username"
@@ -111,7 +118,7 @@ const SignUp = props => {
             type="password"
           />
           
-          <buttons>Submit</buttons>
+          <button>Submit</button>
         </form>
       </div>
     

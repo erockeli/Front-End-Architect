@@ -25,7 +25,7 @@ const handleSubmit = e => {
     .then(res => {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('userId', res.data.user.id)
-        props.history.push('/dash')
+        props.history.push('/chefdash')
 
     })
     .catch(err => console.log(err))
