@@ -2,7 +2,7 @@ import React from 'react'
 import pictures from '../images'
 
 export const RecipeCard = props => {
-    console.log('what is props',pictures[props.id])
+    // console.log('what is props',pictures[props.id])
     return (
         <div>
             

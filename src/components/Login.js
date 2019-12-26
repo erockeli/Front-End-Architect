@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner'
 
 
 export const Login = props => {
-    // const [LoggedIn] = useState(false)
+   
     const [data, setData] = useState({
         username: '',
         password: '',
@@ -21,7 +21,7 @@ const handleChange = e => {
     
 const handleSubmit = e => {
     e.preventDefault();
-    console.log('the data', data);
+    console.log('Login data', data);
     axiosWithAuth()
     .post('/auth/login', data)
     .then(res => {

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import {axiosWithAuth} from "../utils/axiosWithAuth";
+import useForm from './useForm'
+import Validate from './Validate'
 
 
 
@@ -7,36 +9,21 @@ import {axiosWithAuth} from "../utils/axiosWithAuth";
 // start of Component
 
 const SignUp = props => {
-  const [newUser, setNewUser] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    streetAddress: "",
-    city: "",
-    state: "",
-    phone: '',
-    username: "",
-    password: ""
-  });
- 
-
-  const handleChange = e => {
-    setNewUser({
-        ...newUser,
-        [e.target.name]: e.target.value
-    })
-  };
+  
+  const {handleChange, newUser, setErrors, errors } = useForm(Validate)
 
   const handleSubmit = e => {
+    setErrors(Validate(newUser))
     e.preventDefault();
+    
     axiosWithAuth()
       .post('/auth/register', newUser)     
-      .then(response => {
-        console.log("registration response", response)
-        localStorage.setItem('token', response.data.token)
-        localStorage.setItem('userId', response.data.user.id)
+      .then(res => {
+        console.log("registration res", res)
+        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('userId', res.data.user.id)
         props.history.push('/chefdash')
-      })
+      }, [])
       .catch(error => console.log(error));
   };
 
@@ -44,42 +31,63 @@ const SignUp = props => {
     
 
       <div className="signup">
-        <form onSubmit={handleSubmit}>
-        <h1>Let's Eat</h1>
-        <h2>Sign-Up</h2>
+        <form onSubmit={handleSubmit} noValidate>
+       
+        <h3>Sign-Up</h3>
           <input
-            name="firstName"
+            name="firstname"
             placeholder="First Name"
             onChange={handleChange}
-            value={newUser.firstName}
+            value={newUser.firstname}
             type="text"
-          />
+          />        
           <input
-            name="lastName"
+            name="lastname"
             placeholder="Last Name"
             onChange={handleChange}
-            value={newUser.lastName}
+            value={newUser.lastname}
             type="text"
           />
+          <br/>
+          <input
+            name="username"
+            placeholder="Username"
+            onChange={handleChange}
+            value={newUser.username}
+            type="text"         
+          /> 
+          {errors.username && <p>{errors.username}</p>}        
+          <input
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            value={newUser.password}
+            type="password"
+          />
+          {errors.password && <p>{errors.password}</p>} 
+          <br/>
           <input
             name="email"
             placeholder="Email"
             onChange={handleChange}
             value={newUser.email}
             type="email"
+          
           />
+          {errors.email && <p>{errors.email}</p>} 
           <input
-            name="streetAddress"
+            name="phone"
+            placeholder="Phone"
+            onChange={handleChange}
+            value={newUser.phone}
+            type="phone"
+          />
+          <br/>
+          <input
+            name="address"
             placeholder="Address"
             onChange={handleChange}
-            value={newUser.streetAddress}
-            type="text"
-          />
-          <input
-            name="city"
-            placeholder="City"
-            onChange={handleChange}
-            value={newUser.city}
+            value={newUser.address}
             type="text"
           />
           <input
@@ -90,34 +98,21 @@ const SignUp = props => {
             type="text"
           />
           <input
+            name="city"
+            placeholder="City"
+            onChange={handleChange}
+            value={newUser.city}
+            type="text"
+          />          
+          <br/>        
+          {/* <input
             name="zipcode"
             placeholder="Zip"
             onChange={handleChange}
             value={newUser.zipCode}
             type="text"
-          />
-          <input
-            name="phone"
-            placeholder="Phone"
-            onChange={handleChange}
-            value={newUser.phone}
-            type="phone"
-          />
-          <input
-            name="username"
-            placeholder="Username"
-            onChange={handleChange}
-            value={newUser.username}
-            type="text"
-          />
-          <input
-            name="password"
-            placeholder="Password"
-            onChange={handleChange}
-            value={newUser.password}
-            type="password"
-          />
-          
+          /> */}
+          <br/>        
           <button>Submit</button>
         </form>
       </div>
