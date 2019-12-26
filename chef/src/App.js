@@ -1,10 +1,8 @@
 import React from 'react';
 import './App.css';
 import UserDash from './components/UserDash'
-
 import PrivateRoute from './utils/PrivateRoute'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
 import {Logout} from './components/Logout'
 
 
@@ -16,7 +14,7 @@ function App() {
       <div className="App">
         
         <UserDash/>
-       
+        
 
         {/* <Router> */}
        

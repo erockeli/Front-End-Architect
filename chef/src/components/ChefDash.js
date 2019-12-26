@@ -50,7 +50,7 @@ import Logout from './Logout'
     }
     return (
         <div>
-            
+            <h1>Chef DashBoard</h1>
             {/* <h1>Recipes</h1>
             <AddRecipe addRecipe={addRecipe}/>
         {recipes.map(post => (

@@ -4,10 +4,6 @@ import { RecipeCard } from './RecipeCard';
 import Header from './Header';
 
 
-
-
-
-
 const UserDash = props => {
     const [recipes, setRecipes] = useState([])
     
@@ -17,10 +13,12 @@ const UserDash = props => {
         .then(res => setRecipes(res.data))
         .catch(err => console.log(err.res))
     }, [])
+    
     return (
         <div>
-            <Header/>
             
+            <Header/>
+                        
            {recipes.map(item => (
                <RecipeCard 
                     
