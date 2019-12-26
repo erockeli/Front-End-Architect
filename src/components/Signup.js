@@ -34,12 +34,12 @@ const Signup = props => {
   const handleSubmit = e => {
     
     e.preventDefault();
-    
+
     axios
-      .post('https://chefportfolio10.herokuapp.com/api/auth/register')     
+      .post('https://chefportfolio10.herokuapp.com/api/auth/register', newUser)     
       .then(res => {
         console.log("registration res", res)
-        // localStorage.setItem('token', res.data.token)
+        localStorage.setItem('token', res.data.token)
         // localStorage.setItem('userId', res.data.user.id)
         props.history.push('/login')
       }, [])
