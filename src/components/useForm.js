@@ -1,34 +1,19 @@
-import {useState,useEffect} from 'react'
-// import Validate from './Validate'
+// import {useState} from 'react'
+// import _validate from './validate'
 
-const useForm = Validate => {
+// const useForm = (_validate) => {
     
-    const [errors, setErrors] = useState({})
-    const [newUser, setNewUser] = useState({
-        firstname: "",
-        lastname: "",
-        username: "",
-        password: "", 
-        email: "",
-        phone: '',
-        state: '',
-        city: "",
-        address: ""          
-      });
+//     const [errors, setErrors] = useState({})
+    
      
-    const handleChange = e => { 
-        setNewUser({
-            ...newUser,
-            [e.target.name]: e.target.value
-        })
-      };
+//    
       
-      return {
-          handleChange,
-          newUser,
-          setErrors,
-          errors          
-      }
-}
-export default useForm;
+//       return {
+//           
+//           newUser,
+//           setErrors,
+//           errors          
+//       }
+// }
+// export default useForm;
 

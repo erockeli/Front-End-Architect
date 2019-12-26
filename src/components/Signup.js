@@ -1,28 +1,47 @@
 import React, { useState } from "react";
-import {axiosWithAuth} from "../utils/axiosWithAuth";
+import axios from "axios";
 import useForm from './useForm'
-import Validate from './Validate'
+import Validate from './validate'
 
 
 
 
 // start of Component
 
-const SignUp = props => {
+const Signup = props => {
   
-  const {handleChange, newUser, setErrors, errors } = useForm(Validate)
+  const [newUser, setNewUser] = useState({
+    firstname: "",
+    lastname: "",
+    username: "",
+    password: "", 
+    email: "",
+    phone: '',
+    address: "", 
+    state: '',
+    city: "",
+    zipcode: ''
+             
+  });
+
+  const handleChange = e => { 
+    setNewUser({
+        ...newUser,
+      [e.target.name]: e.target.value
+    })
+  };
 
   const handleSubmit = e => {
-    setErrors(Validate(newUser))
+    
     e.preventDefault();
     
-    axiosWithAuth()
-      .post('/auth/register', newUser)     
+    axios
+      .post('https://chefportfolio10.herokuapp.com/api/auth/register')     
       .then(res => {
         console.log("registration res", res)
-        localStorage.setItem('token', res.data.token)
-        localStorage.setItem('userId', res.data.user.id)
-        props.history.push('/chefdash')
+        // localStorage.setItem('token', res.data.token)
+        // localStorage.setItem('userId', res.data.user.id)
+        props.history.push('/login')
       }, [])
       .catch(error => console.log(error));
   };
@@ -56,7 +75,7 @@ const SignUp = props => {
             value={newUser.username}
             type="text"         
           /> 
-          {errors.username && <p>{errors.username}</p>}        
+               
           <input
             name="password"
             placeholder="Password"
@@ -64,7 +83,7 @@ const SignUp = props => {
             value={newUser.password}
             type="password"
           />
-          {errors.password && <p>{errors.password}</p>} 
+           
           <br/>
           <input
             name="email"
@@ -74,7 +93,7 @@ const SignUp = props => {
             type="email"
           
           />
-          {errors.email && <p>{errors.email}</p>} 
+           
           <input
             name="phone"
             placeholder="Phone"
@@ -105,13 +124,13 @@ const SignUp = props => {
             type="text"
           />          
           <br/>        
-          {/* <input
+          <input
             name="zipcode"
-            placeholder="Zip"
+            placeholder="Zip Code"
             onChange={handleChange}
-            value={newUser.zipCode}
+            value={newUser.zipcode}
             type="text"
-          /> */}
+          />
           <br/>        
           <button>Submit</button>
         </form>
@@ -120,4 +139,4 @@ const SignUp = props => {
   );
 };
 
-export default SignUp;
+export default Signup;
