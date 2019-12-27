@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import Logout from './Logout'
+import AddRecipe from './addRecipe'
 
 
  const ChefDash = () => {
@@ -52,9 +53,9 @@ import Logout from './Logout'
         <div>
             <Logout/>
             <h1>Chef DashBoard</h1>
-            {/* <h1>Recipes</h1>
+            <h1>Recipes</h1>
             <AddRecipe addRecipe={addRecipe}/>
-        {recipes.map(post => (
+        {/* {recipes.map(post => (
                 <EditRecipes
                     key={post.id}
                     recipes={recipes}
