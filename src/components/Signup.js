@@ -16,11 +16,11 @@ const Signup = props => {
     username: "",
     password: "", 
     email: "",
-    phone: '',
-    address: "", 
-    state: '',
-    city: "",
-    zipcode: ''
+    phone: null,
+    address: null, 
+    state: null,
+    city: null,
+    zipcode: null
              
   });
 

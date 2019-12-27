@@ -8,7 +8,7 @@ export const Login = props => {
     const [data, setData] = useState({
         username: '',
         password: '',
-        loading: false
+        
     })
 
 

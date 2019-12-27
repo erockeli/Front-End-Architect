@@ -14,7 +14,7 @@ const Header = props => {
                 <nav>
                 <Link to='/login'>Log In</Link>
                 <Link to='/signup'>Sign Up</Link>
-                <Logout/>
+                
                 </nav>
 
                    
