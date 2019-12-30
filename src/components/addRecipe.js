@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {AuthContext} from'../Contexts/AuthContext'
 
 const AddRecipe = props => {
   const [newRecipe, setNewRecipes] = useState({
-    recipeName: "",
-    recipeIngredients: "",
-    recipeDescription: ""
+    recipe_name: "",
+    ingredients: "",
+    instructions: ""
   });
+
+
+  const {addRecipe} = useContext(AuthContext)
 
   const handleChange = e => {
     setNewRecipes({
@@ -16,11 +20,11 @@ const AddRecipe = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.AddRecipe(newRecipe);
+    addRecipe(newRecipe);
     setNewRecipes({
-      recipeName: "",
-      recipeIngredients: "",
-      recipeDescription: ""
+      recipe_name: "",
+      ingredients: "",
+      instructions: ""
     });
   };
 
@@ -28,13 +32,13 @@ const AddRecipe = props => {
     <div className="add-recipe">
       <form onSubmit={handleSubmit}>
         <h3> Recipe Name</h3>
-        <input onChange={handleChange} name="Recipe Name" placeholder="Recipe Name" />
+        <input onChange={handleChange} name="recipe_name" placeholder="Recipe Name" />
         <br/>
-        <textarea name="Ingredients"
+        <textarea onChange={handleChange} name="ingredients"
         placeholder="Ingredients" 
         type="text"/>
         <br/>
-        <textarea name="Description" 
+        <textarea onChange={handleChange} name="instructions" 
                placeholder="Description" />
         <br/>
         <button>Add Recipe</button>

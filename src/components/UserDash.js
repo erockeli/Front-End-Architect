@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import { RecipeCard } from './RecipeCard';
-import Header from './Header';
+
+
 
 
 const UserDash = props => {
     const [recipes, setRecipes] = useState([])
+    
     
     useEffect(() => {
         axios
@@ -17,7 +19,7 @@ const UserDash = props => {
     return (
         <div>
             
-            <Header/>
+     
                         
            {recipes.map(item => (
                <RecipeCard 
